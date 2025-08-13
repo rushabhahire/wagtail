@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags %}
+
+{% block content %}
+{% if request.GET.tag %}
+<h2>Below are posts tagged "{{ request.GET.tag }}"</h2>
+{% endif %}
+
+{% for post in blogposts %}
+<div class="blogpost-items">
+    <p>
+        <a href="{% pageurl post %}">{{ post.title }}</a>
+    </p>
+</div>
+{% endfor %}
+{% endblock %}
